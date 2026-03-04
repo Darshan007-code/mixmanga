@@ -2,6 +2,8 @@
 
 MixManga is a high-performance, modern platform for tracking and reading **Manga, Manhwa, and Webtoons**. Rebranded from MixAnime, it now offers a seamless vertical reading experience, professional database tracking, and industry-leading performance optimizations.
 
+**Live Demo**: [https://mixmanga.onrender.com](https://mixmanga.onrender.com)
+
 ---
 
 ## 🚀 Key Features

@@ -1,120 +1,96 @@
-# MixManga
+# MixManga 📖
 
-Welcome to MixManga, your go-to platform for tracking a wide range of manga series. Developed using the MERN stack (MongoDB, Express.js, React, and Node.js), MixManga provides a seamless and immersive experience.
+MixManga is a high-performance, modern platform for tracking and reading **Manga, Manhwa, and Webtoons**. Rebranded from MixAnime, it now offers a seamless vertical reading experience, professional database tracking, and industry-leading performance optimizations.
 
-## Website Link
+---
 
-[MixManga](https://mixmanga.onrender.com/)
+## 🚀 Key Features
 
-## Table of Contents
+- **Vertical Webtoon Reader**: A native, long-strip reading experience powered by the **Consumet API**.
+- **Manga, Manhwa & Webtoon Tracking**: Comprehensive database for tracking your progress across all types of Asian media.
+- **Smart Performance**: 
+  - **In-Memory Caching**: Instant navigation with a specialized memory-first cache layer.
+  - **Image Optimization**: Drastically reduced loading times with optimized thumbnail delivery.
+- **Modern User Profiles**: Sleek, glassmorphic profile dashboard with real-time reading statistics and favorites.
+- **Safe Content Filter**: A dedicated **Safe Search** system that keeps 18+ content hidden behind an explicit toggle.
+- **Global Search**: Search across thousands of titles with instant results.
+- **User Authentication**: Secure JWT-based login and registration system.
 
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+---
 
-## Features
+## 🛠️ Technologies Used
 
-- **User Authentication**: Secure user authentication using JWT.
-- **Manga Catalog**: Browse and search from a large collection of manga series.
-- **Tracking**: Track your progress with chapters and volumes.
-- **Favorites**: Users can add manga to their favorites list.
-- **Responsive Design**: Optimized for both desktop and mobile devices.
-- **Admin Panel**: Admin functionality to manage manga content and users.
+- **Frontend**: React.js (Vite), Tailwind CSS, Framer Motion (for high-end animations).
+- **Backend**: Node.js, Express.js.
+- **Database**: MongoDB (Local or Atlas).
+- **APIs**: AniList (Metadata), Consumet (Chapter fetching and image lists).
+- **Caching**: Specialized Memory Map + LocalStorage fallback.
 
-## Technologies Used
+---
 
-- **Frontend**: React, Redux, React Router
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Authentication**: JSON Web Tokens (JWT)
-- **Hosting**: Render
-
-## Installation
+## 💻 Installation & Setup
 
 ### Prerequisites
-
-- Node.js (v18 or above)
-- MongoDB
+- [Node.js](https://nodejs.org/) (v18+)
+- [MongoDB](https://www.mongodb.com/try/download/community) (Running locally or on Atlas)
 
 ### Steps
 
-1. Clone the repository:
+1. **Clone the Project**:
+   ```bash
+   git clone https://github.com/Darshan007-code/mixmanga.git
+   cd mixmanga
+   ```
 
-    ```sh
-    git clone https://github.com/sandy-5000/mixmanga.git
-    cd mixmanga
-    ```
+2. **Backend Configuration**:
+   Create a `.env` file in the `backend` folder:
+   ```env
+   PORT=5000
+   MONGO_DB_URL=mongodb://localhost:27017/mixmanga
+   JWT_SECRET=your_secret_key
+   SALT=10
+   ```
 
-2. Install backend dependencies:
+3. **Install Dependencies**:
+   ```bash
+   # Root
+   npm install
+   
+   # Backend
+   cd backend
+   npm install
+   
+   # Frontend
+   cd ../frontend
+   npm install
+   ```
 
-    ```sh
-    npm install
-    cd ./backend
-    npm install
-    ```
-
-3. Install frontend dependencies:
-
-    ```sh
-    cd ../frontend
-    npm install
-    ```
-
-4. Create a `.env` file in the `backend` directory and add the following environment variables:
-
-    ```env
-    PORT=5000
-    MONGO_DB_URL=your_mongodb_connection_string
-    JWT_SECRET=your_jwt_secret
-    SALT=your_salt
-    ```
-
-5. Build the frontend:
-
-    ```sh
-    cd frontend
-    npm run build
-    ```
-
-6. Start the backend server:
-
-    ```sh
-    cd ../frontend
-    npm start
-    ```
-
-7. Open your browser and navigate to `http://localhost:5000`.
-
-## Usage
-
-1. Register or log in to your account.
-2. Browse or search for your favorite manga.
-3. Click on a manga to view details.
-4. Add manga to your favorites for quick access.
-
-## Contributing
-
-We welcome contributions! Please follow these steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a pull request.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+4. **Run the Application**:
+   ```bash
+   # In one terminal (Backend)
+   cd backend
+   npm start
+   
+   # In another terminal (Frontend)
+   cd frontend
+   npm run dev
+   ```
 
 ---
 
-Thank you for using MixManga! If you have any questions or feedback, feel free to open an issue or contact us. Enjoy!
+## 👤 Developer
+
+Developed and Optimized by **Darshan Patil**.
+
+- **GitHub**: [@Darshan007-code](https://github.com/Darshan007-code)
+- **Project URL**: [https://github.com/Darshan007-code/mixmanga](https://github.com/Darshan007-code/mixmanga)
 
 ---
 
-**Note**: Replace `https://github.com/sandy-5000/mixmanga.git` with your actual GitHub repository URL, and ensure you have set up the necessary environment variables and configurations for deployment on Render.
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+*Thank you for using MixManga! If you find this project useful, feel free to give it a ⭐ on GitHub.*

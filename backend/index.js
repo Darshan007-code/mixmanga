@@ -22,13 +22,18 @@ const client = new MongoClient(MONGO_DB_URL, {
 
 async function main() {
   try {
+    if (!MONGO_DB_URL) {
+      throw new Error('MONGO_DB_URL is not defined in environment variables')
+    }
+    console.log('Connecting to DB...')
     await client.connect()
-    console.log('DB Connected')
+    console.log('DB Connected Successfully')
     const db = client.db()
     app.locals.db = db
-    app.listen(PORT, () => console.log(`visit http://${HOST}:${PORT}`))
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
   } catch (e) {
-    console.error('db NOT connected', e)
+    console.error('DATABASE CONNECTION ERROR:', e.message)
+    console.error('FULL ERROR:', e)
     process.exit(1)
   }
 }

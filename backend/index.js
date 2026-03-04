@@ -14,27 +14,30 @@ const PORT = process.env.PORT || 5000
 const HOST = process.env.HOST || 'localhost'
 const MONGO_DB_URL = process.env.MONGO_DB_URL
 
-const client = new MongoClient(MONGO_DB_URL, {
-  connectTimeoutMS: 10000,
-  socketTimeoutMS: 45000,
-  serverSelectionTimeoutMS: 10000
-})
+const client = new MongoClient(MONGO_DB_URL)
 
 async function main() {
+  // Start listening immediately so Render knows the app is alive
+  const server = app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is live on port ${PORT}`)
+  })
+
   try {
     if (!MONGO_DB_URL) {
-      throw new Error('MONGO_DB_URL is not defined in environment variables')
+      throw new Error('MONGO_DB_URL is missing')
     }
-    console.log('Connecting to DB...')
+    console.log('Attempting to connect to MongoDB Atlas...')
+    
     await client.connect()
-    console.log('DB Connected Successfully')
+    
+    console.log('✅ DB Connected Successfully')
     const db = client.db()
     app.locals.db = db
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
   } catch (e) {
-    console.error('DATABASE CONNECTION ERROR:', e.message)
-    console.error('FULL ERROR:', e)
-    process.exit(1)
+    console.error('❌ DATABASE ERROR:', e.message)
+    console.error('Check your IP Whitelist (0.0.0.0/0) and Password.')
+    // Don't exit immediately, let the logs flush
+    setTimeout(() => process.exit(1), 1000)
   }
 }
 

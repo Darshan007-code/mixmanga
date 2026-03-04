@@ -14,7 +14,11 @@ const PORT = process.env.PORT || 5000
 const HOST = process.env.HOST || 'localhost'
 const MONGO_DB_URL = process.env.MONGO_DB_URL
 
-const client = new MongoClient(MONGO_DB_URL)
+const client = new MongoClient(MONGO_DB_URL, {
+  connectTimeoutMS: 10000,
+  socketTimeoutMS: 45000,
+  serverSelectionTimeoutMS: 10000
+})
 
 async function main() {
   try {

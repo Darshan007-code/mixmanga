@@ -2,8 +2,7 @@ import axios from 'axios'
 
 class BackendService {
   constructor() {
-    this.URL = window.location.origin.includes('localhost') ? 'http://localhost:5000' : ''
-    // this.URL = 'https://mixmanga.onrender.com'
+    this.URL = import.meta.env.VITE_BACKEND_URL || (window.location.origin.includes('localhost') ? 'http://localhost:5000' : 'https://mixmanga.onrender.com')
   }
 
   get(url, params) {
